@@ -100,25 +100,5 @@ class Application:
                                         self.data.user_data['laning_role']
                                         )
 
-        self.database.insert_into_table('parsed_matches_general_data',
-                                        self.data.match_data['match_id'],
-                                        self.data.user_data['kills'],
-                                        self.data.user_data['deaths'],
-                                        self.data.user_data['assists'],
-                                        self.data.user_data['last_hits'],
-                                        self.data.user_data['denies'],
-                                        self.data.user_data['net_worth'],
-                                        self.data.user_data['gold_per_min'],
-                                        self.data.user_data['xp_per_min'],
-                                        self.data.user_data['hero_damage'],
-                                        self.data.user_data['tower_damage'],
-                                        self.data.user_data['hero_healing']
-                                        )
-        self.database.insert_into_table('parsed_matches_teamfight',
-                                        self.data.match_data['match_id'],
-                                        self.data.player_stats['participation'],
-                                        self.data.player_stats['participation_percent'],
-                                        self.data.player_stats['total_impact'],
-                                        self.data.player_stats['average_impact'],
-                                        self.data.player_stats['best_fight_average_impact']
-                                        )
+        # TODO: target abilities + skill-shots
+        return

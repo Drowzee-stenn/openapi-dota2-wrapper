@@ -1,4 +1,4 @@
-from database_controller.base_database import BaseDatabase
+from core.database.base_database import BaseDatabase
 
 
 class Database(BaseDatabase):
@@ -8,7 +8,7 @@ class Database(BaseDatabase):
         self.create_tables()
 
     def create_tables(self):
-        with open('database_controller\\tables') as file:
+        with open('core\\database\\tables') as file:
             list_of_tables = file.readlines()
         for table in list_of_tables:
             self.execute_and_commit(table)

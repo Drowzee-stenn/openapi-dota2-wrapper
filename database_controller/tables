@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS parsed_matches_history (match_id integer PRIMARY KEY, hero_name integer, laning_role text);
+CREATE TABLE IF NOT EXISTS parsed_matches_general_data (match_id integer PRIMARY KEY, kills integer, deaths integer, assists integer, creeps_killed integer, creeps_denied integer, networth integer, gpm integer, xpm integer, hero_damage integer, tower_damage integer, healing integer);

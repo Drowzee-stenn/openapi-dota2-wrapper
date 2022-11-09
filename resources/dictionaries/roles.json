@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "role": "Easy line"
+  },
+  {
+    "id": 2,
+    "role": "Middle"
+  },
+  {
+    "id": 3,
+    "role": "Hard line"
+  },
+  {
+    "id": 4,
+    "role": "Jungle/Roaming"
+  }
+]

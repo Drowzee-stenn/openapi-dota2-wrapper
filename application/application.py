@@ -68,6 +68,21 @@ class DataHelper:
         print(f'Your best teamfight happened at {self.player_stats["best_fight_start"]}, '
               f'with total impact of {max(self.player_stats["each_fight_impact"])}')
 
+    def prepare_skills_data(self):
+
+        def get_lane_roles() -> dict:
+            roles = {}
+            for player in self.match_data['players']:
+                roles[core.get_heroname_by_id(player['hero_id'])] = core.get_lane_by_role_id(player['lane_role'])
+
+            return roles
+
+        roles = get_lane_roles()
+
+        pass
+
+
+
 
 class Application:
 
@@ -94,11 +109,34 @@ class Application:
         self.data.prepare_match_data()
         self.data.prepare_teamfight_data()
 
-        self.database.insert_into_table('parsed_matches_history',
-                                        self.data.match_data['match_id'],
-                                        self.data.user_data['hero_name'],
-                                        self.data.user_data['laning_role']
-                                        )
+        # self.database.insert_into_table('parsed_matches_history',
+        #                                 self.data.match_data['match_id'],
+        #                                 self.data.user_data['hero_name'],
+        #                                 self.data.user_data['laning_role']
+        #                                 )
+        #
+        # self.database.insert_into_table('parsed_matches_general_data',
+        #                                 self.data.match_data['match_id'],
+        #                                 self.data.user_data['kills'],
+        #                                 self.data.user_data['deaths'],
+        #                                 self.data.user_data['assists'],
+        #                                 self.data.user_data['last_hits'],
+        #                                 self.data.user_data['denies'],
+        #                                 self.data.user_data['net_worth'],
+        #                                 self.data.user_data['gold_per_min'],
+        #                                 self.data.user_data['xp_per_min'],
+        #                                 self.data.user_data['hero_damage'],
+        #                                 self.data.user_data['tower_damage'],
+        #                                 self.data.user_data['hero_healing']
+        #                                 )
+        # self.database.insert_into_table('parsed_matches_teamfight',
+        #                                 self.data.match_data['match_id'],
+        #                                 self.data.player_stats['participation'],
+        #                                 self.data.player_stats['participation_percent'],
+        #                                 self.data.player_stats['total_impact'],
+        #                                 self.data.player_stats['average_impact'],
+        #                                 self.data.player_stats['best_fight_average_impact']
+        #                                 )
 
-        # TODO: target abilities + skill-shots
+        self.data.prepare_skills_data()
         return

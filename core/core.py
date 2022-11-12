@@ -8,7 +8,7 @@ def get_heroname_by_id(hero_id):
         heroes = json.loads(file.read())
         for hero in heroes:
             if hero['id'] == hero_id:
-                return hero['localized_name']
+                return hero['name']
         raise Exception(f'hero with id {hero_id} was not found')
 
 
